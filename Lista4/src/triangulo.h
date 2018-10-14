@@ -21,8 +21,8 @@ void atribuiT(Triangulo* t, Ponto* p1, Ponto* p2, Ponto* p3);
 existência e 0, caso contrário */
 int verificaT(Triangulo* t);
 
-/* Função pertenceT - Retorna 1 se o ponto pertence ao triângulo ou 0, caso contrário*/
-int pertenceT(Triangulo* t, Ponto* p);
-
 /* Função areaT - Retorna o cálculo da área do triângulo */
 float areaT(Triangulo* t);
+
+/* Função pertenceT - Retorna 1 se o ponto pertence ao triângulo ou 0, caso contrário*/
+int pertenceT(Triangulo* t, Ponto* p);
