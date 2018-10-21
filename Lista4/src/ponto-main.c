@@ -42,6 +42,7 @@ int main (){
 	printf("Função distanciaP:\nDistância entre os dois pontos = %.2f\n", distanciaP(p, p2));
 
 	liberaP(p);
+	liberaP(p2);
 	printf("Função liberaP: Espaço lirado!\n");
 	return 0;
 }

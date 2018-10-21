@@ -6,7 +6,6 @@ O executável é gerado pela ligação do objeto de ponto-tad.c, triangulo-tad e
 */
 
 #include <stdio.h>
-#include "ponto.h"
 #include "triangulo.h"
 
 int main (){
@@ -71,15 +70,18 @@ int main (){
 	printf("(Novo ponto 'c' criado!)\n");
 
 	atribuiT(t, d, e, f);
-	liberaP(a);
-	liberaP(b);
-	liberaP(c);
-	printf("Função 'atribuiT': Pontos atribuídos!\n");
+
+	acessaT(t, p1, p2, p3);
+	acessaP(p1, &x1, &y1);
+	acessaP(p2, &x2, &y2);
+	acessaP(p3, &x3, &y3);
+
+	printf("Função 'atribuiT': Pontos atribuídos!\na(%.2f,%.2f)	b(%.2f,%.2f)	c(%.2f,%.2f)\n", x1, y1, x2, y2, x3, y3);
 
 	printf("Função 'verificaT': ");
 
 	if(verificaT(t) == 1){
-		printf("As coordenadas formam um triângulo!\n");
+		printf("as coordenadas formam um triângulo!\n");
 
 		printf("Função 'areaT':\nÁrea = %.2f\n", areaT(t));
 
@@ -91,22 +93,29 @@ int main (){
 		
 		Ponto *p = criaP(z, w);
 
-		printf("Função 'pertenceT':");
-		if (pertenceT(t , p) == 1){
+		printf("Função 'pertenceT': ");
+		if (pertenceT(t, p) == 1){
 			printf("O ponto pertence!");
 		} else {
 			printf("O ponto não pertence!");
-		}
+		};
 
 		liberaP(p);
 
 	} else {
-		printf("As coordenadas não formam um triângulo!\n");
+		printf("as coordenadas não formam um triângulo!");
 		
 	}
 
+	liberaP(p1);
+	liberaP(p2);
+	liberaP(p3);
+
+	liberaP(a);
+	liberaP(b);
+	liberaP(c);
 	liberaT(t);
-	printf("Função 'liberaT': Triângulo liberado!\n");
+	printf("\nFunção 'liberaT': Triângulo liberado!\n");
 
 	return 0;
 }

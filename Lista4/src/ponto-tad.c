@@ -8,16 +8,15 @@ Deve ser compilado em objeto ($ gcc -c ponto-tad.c -o nome.o)
 #include <math.h>
 #include "ponto.h"
 
-//Definindo tipo 'Ponto' como uma estrutura com cordenadas x, e y:
-typedef struct ponto {
+//Definindo propriedaes da estrutura do tipo 'Ponto':
+struct ponto {
 	float x;
 	float y;
-} Ponto;
+};
 
 //Função retorna ponteiro tipo Ponto
 Ponto* criaP(float x, float y){
-	struct ponto* p; //p é uma variável ponteiro com estrutura de ponto
-	p = (struct ponto*) malloc(sizeof(struct ponto));
+	Ponto *p = (struct ponto*) malloc(sizeof(struct ponto)); //p é uma variável ponteiro com estrutura de ponto
 	p->x = x; //cordenada x de p recebe x do parâmentro da função
 	p->y = y;
 	return p;
@@ -27,20 +26,19 @@ void liberaP(Ponto* p){
 	free(p);
 };
 
-void acessaP(Ponto* p, float* x, float* y){
-	*x = p->x;
-	*y = p->y;
+void acessaP(Ponto *p, float *x, float *y){
+	*x = p->x; //Ponteiro x do parâmetro recebe valor de x atributo de p
+	*y = p->y; 
 };
 
-void atribuiP(Ponto* p, float x, float y){
-	p->x = x;
-	p->y = y;
+void atribuiP(Ponto *p, float x, float y){
+	p->x = x; //x atributo de p recebe valor do parâmetro
+	p->y = y; 
 };
 
-float distanciaP(Ponto* p1, Ponto* p2){
-	float dx = (p1->x) - (p2->x);
-	dx = abs(dx);
-	float dy = (p1->y) - (p2->y);
-	dy = abs(dy);
-	return sqrt(dx*dx + dy*dy);
+float distanciaP(Ponto *p1, Ponto *p2){
+	float x1, y1, x2, y2;
+	acessaP(p1, &x1, &y1);
+	acessaP(p2, &x2, &y2);
+	return sqrt(((x1 - x2) * (x1 - x2)) + ((y1 - y2) * (y1 - y2)));	
 };

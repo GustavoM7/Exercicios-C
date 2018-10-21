@@ -38,6 +38,9 @@ int main (){
 	atribuiC(c, a, b, r2);
 	printf("Função 'atribuiC': valores atribuidos com sucesso!\n");
 
+	x = 0;
+	y = 0;
+	r = 0;
 	acessaC(c, &x, &y, &r);
 	printf("Função 'acessaC': valores acessados com sucesso!\np = (%.2f , %.2f)\nRaio = %.2f\n", x, y, r);
 
@@ -50,7 +53,7 @@ int main (){
 	Ponto *p2 = criaP(d, e);
 	printf("(Novo ponto criado!)\n");
 
-	if(pertenceC(c, p) == 1)
+	if(pertenceC(c, p2) == 1)
 		printf("Função 'pertenceC': o ponto pertence ao círculo!\n");
 	else
 		printf("Função 'pertenceC': o ponto não pertence ao círculo!\n");
@@ -58,6 +61,7 @@ int main (){
 	printf("Função 'areaC':\nÁrea = %.2f\n", areaC(c));
 
 	liberaC(c);
+	liberaP(p2);
 	printf("Função 'liberaC': espaço liberado com sucesso!\n");
 
 	return 0;
