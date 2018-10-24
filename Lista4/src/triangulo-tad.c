@@ -46,16 +46,9 @@ void acessaT(Triangulo *t, Ponto *p1, Ponto *p2, Ponto *p3){
 };
 
 void atribuiT(Triangulo *t, Ponto *p1, Ponto *p2, Ponto *p3){
-	float x, y;
-
-	acessaP(p1, &x, &y);
-	atribuiP(t->a, x, y);
-
-	acessaP(p2, &x, &y);
-	atribuiP(t->b, x, y);
-
-	acessaP(p3, &x, &y);
-	atribuiP(t->c, x, y);
+	t->a = p1;
+	t->b = p2;
+	t->c = p3;
 };
 
 int verificaT(Triangulo *t){
@@ -84,7 +77,7 @@ int pertenceT(Triangulo *t, Ponto *p){
 
 	Triangulo *t3 = criaT(t->b, t->c, p);
 
-	if(areaT(t) == areaT(t1) + areaT(t2) + areaT(t3))
+	if(areaT(t) >= floor(areaT(t1) + areaT(t2) + areaT(t3)))
 		return 1;
 
 	return 0;
